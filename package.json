@@ -19,5 +19,10 @@
   },
   "scripts": {
     "start": "nodemon index"
+  },
+  "standard": {
+    "globals": [
+      "$"
+    ]
   }
 }

@@ -2,7 +2,7 @@
 
 <h2>Sign up as a client</h2>
 
-<form id="new" action="/users" method="post">
+<form id="newUserForm" action="/users" method="post">
   <div class="form-grp">
     <label>
       Name:
@@ -21,6 +21,13 @@
     <label>
       Password:
       <input type="text" name="user[password]" placeholder="Enter password">
+    </label>
+  </div>
+
+  <div class="form-grp">
+    <label>
+      Preferred Location:
+      <input type="text" name="user[location]" placeholder="Submit location">
     </label>
   </div>
 

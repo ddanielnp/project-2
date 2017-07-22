@@ -1,7 +1,13 @@
-<form id="findlocation" action="index.html" method="post">
-  <label>search for trainers around your location
-    <input type="text" name="location" placeholder="Search location">
-  </label>
+{{#each users as |user|}}
+<a href="/users/{{user.id}}">Back to user page</a>
 
-  <button>Search now</button>
-</form>
+{{/each}}
+
+  <form id="findlocation" action="index.html" method="post">
+    <label>
+      Search for trainers
+      <input type="text" name="location" placeholder="Search location">
+    </label>
+
+    <button>Search now</button>
+  </form>

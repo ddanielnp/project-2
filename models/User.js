@@ -12,6 +12,7 @@ const userSchema = new Schema({
     required: [true, 'Please type your email']
   },
   password: String,
+  location: String,
   trainers: [{
     type: Schema.Types.ObjectId,
     ref: 'Trainer'

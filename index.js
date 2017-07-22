@@ -43,22 +43,20 @@ app.use(bodyParser.urlencoded({extended: true}))
 // app.use(flash())
 
 const userRoute = require('./routes/userRoute')
-// const xxRoute = require('./routes/xxRoute')
+const trainerRoute = require('./routes/trainerRoute')
 
 app.get('/', function (req, res) {
   res.render('home')
 })
-
+// user routes
 app.use('/users', userRoute)
+// trainer routes
+app.use('/trainers', trainerRoute)
 
-app.get('/trainers', function (req, res) {
-  res.render('./new/newtrainers')
-})
-
+// login route
 app.get('/login', function (req, res) {
   res.render('login')
 })
-
 //
 const port = 3000
 app.listen(port, function () {
