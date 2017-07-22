@@ -53,10 +53,6 @@ app.use('/users', userRoute)
 // trainer routes
 app.use('/trainers', trainerRoute)
 
-// login route
-app.get('/login', function (req, res) {
-  res.render('login')
-})
 //
 const port = 3000
 app.listen(port, function () {

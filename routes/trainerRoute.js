@@ -9,6 +9,10 @@ router.get('/', function (req, res) {
 
 router.post('/', trainerController.create)
 
-router.get('/:id', trainerController.show)
+router.get('/login', function (req, res) {
+  res.render('login')
+})
+
+router.get('/login/:id', trainerController.show)
 
 module.exports = router

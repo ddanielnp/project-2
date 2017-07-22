@@ -9,10 +9,14 @@ router.get('/', function (req, res) {
 
 router.post('/', usersController.create)
 
-router.get('/:id', usersController.show)
+router.get('/login', function (req, res) {
+  res.render('login')
+})
 
-router.get('/:id/update', usersController.update)
+router.get('/login/:id', usersController.show)
 
-router.get('/:id/search', usersController.search)
+router.get('/login/:id/update', usersController.update)
+
+router.get('/login/:id/search', usersController.search)
 
 module.exports = router

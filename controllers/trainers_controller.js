@@ -18,7 +18,7 @@ function create (req, res) {
       // req.flash('errors', err.message)
       // next(err)
     }
-    res.redirect(`/trainers/${newTrainer.id}`)
+    res.redirect('trainers/login')
   })
 } // close for create function
 
