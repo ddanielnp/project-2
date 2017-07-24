@@ -7,21 +7,25 @@ const usersController = require('../controllers/users_controller')
 router.get('/', function (req, res) {
   res.render('new/newusers')
 })
-
 router.post('/', usersController.create)
-
+// ----------
 router.get('/login', function (req, res) {
   res.render('login')
 })
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/users/:id',
+  successRedirect: '/users/profile',
   failureRedirect: '/users'
 }))
+// ----------
+router.get('/profile', usersController.show)
+// router.get('/profile', function (req, res) {
+//   res.render('new/users', {
+//     user: req.session.passport.user
+//   })
+// })
 
-router.get('/login/:id', usersController.show)
+router.get('/update', usersController.update)
 
-router.get('/login/:id/update', usersController.update)
-
-router.get('/login/:id/search', usersController.search)
+router.get('/search', usersController.search)
 
 module.exports = router
