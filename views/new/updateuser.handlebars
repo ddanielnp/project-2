@@ -1,26 +1,34 @@
-
 {{#each users as |user|}}
-<a href="/users/{{user.id}}">Back to user page</a>
-<h1>update page for {{user.name}}</h1>
+  <a href="/users/login/{{user.id}}">Back to user page</a>
+  <h1>update page for {{user.name}}</h1>
 
 {{/each}}
 <form action="/users" method="post">
   <div>
-    <label>Enter your password:</label>
+    <label>Verify your password:</label>
     <input type="text" name="" placeholder="Input password">
-  </div>
-  <div>
-    <label>Change your email:</label>
-    <input type="text" name="" placeholder="Input password">
-  </div>
-  <div>
-    <label>Height:</label>
-    <input type="text" name="" placeholder="Update your height">
-  </div>
-  <div>
-    <label>Weight:</label>
-    <input type="text" name="" placeholder="Update your weight">
   </div>
 
-  <button>Update Particulars</button>
+  <div>
+    <label>Update your email:</label>
+    <input type="text" name="" placeholder="Input password">
+  </div>
+
+  <div>
+    <div>
+      <label>Update your preferred location:</label>
+      <input type="text" name="" placeholder="Input location">
+    </div>
+
+    <div>
+      <label>Height:</label>
+      <input type="text" name="" placeholder="Update your height">
+    </div>
+
+    <div>
+      <label>Weight:</label>
+      <input type="text" name="" placeholder="Update your weight">
+    </div>
+
+    <button>Update Account</button>
 </form>

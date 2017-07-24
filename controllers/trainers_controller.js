@@ -20,7 +20,7 @@ function create (req, res) {
     }
     res.redirect('trainers/login')
   })
-} // close for create function
+} // close for create function ----------
 
 function show (req, res) {
   // getting all places from DB
@@ -33,9 +33,35 @@ function show (req, res) {
       trainers: trainers
     })
   })
-} // close for show function
+} // close for show function ----------
+
+function update (req, res) {
+  Trainer.find({'_id': '59730ce114f06b1d77db8163'}, function (err, trainers) {
+    if (err) {
+      console.log(err)
+      return
+    }
+    res.render('new/updatetrainer', {
+      trainers: trainers
+    })
+  })
+} // close for update function ----------
+
+function search (req, res) {
+  Trainer.find({'_id': '59730ce114f06b1d77db8163'}, function (err, users) {
+    if (err) {
+      console.log(err)
+      return
+    }
+    res.render('form', {
+      users: users
+    })
+  })
+} // close for search function ----------
 
 module.exports = {
   create,
-  show
+  show,
+  update,
+  search
 }

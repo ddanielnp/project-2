@@ -1,11 +1,11 @@
 {{#each users as |user|}}
-<a href="/users/{{user.id}}">Back to user page</a>
+<a href="/users/login/{{user.id}}">Back to user page</a>
 
 {{/each}}
 
   <form id="findlocation" action="index.html" method="post">
     <label>
-      Search for trainers
+      Search
       <input type="text" name="location" placeholder="Search location">
     </label>
 

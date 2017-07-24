@@ -6,6 +6,7 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const bodyParser = require('body-parser')
 const flash = require('connect-flash')
+const passport = require('./config/passport')
 
 const url = process.env.MLAB_URI || 'mongodb://localhost:27017/project-2'
 
@@ -22,25 +23,28 @@ mongoose.connect(url, {
 )
 const app = express()
 
+app.use(session({
+  store: new MongoStore({
+    url: 'mongodb://localhost/project-2'
+  }),
+  secret: 'foo',
+  resave: false,
+  saveUninitialized: true
+}))
+// app.use(flash())
+
 // set middleware
 app.use(express.static('public'))
 app.engine('handlebars', exphbs({
   defaultLayout: 'main'
 }))
 app.set('view engine', 'handlebars')
+
+app.use(passport.initialize())
 // listen to ajax request - json post
 app.use(bodyParser.json())
 // listen to form data submission
 app.use(bodyParser.urlencoded({extended: true}))
-// app.use(session({
-//   secret: process.env.SESSION_SECRET,
-//   resave: false,
-//   saveUninitialized: true,
-//   store: new MongoStore({
-//     url: process.env.MLAB_URI
-//   })
-// }))
-// app.use(flash())
 
 const userRoute = require('./routes/userRoute')
 const trainerRoute = require('./routes/trainerRoute')

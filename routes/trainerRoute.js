@@ -15,4 +15,8 @@ router.get('/login', function (req, res) {
 
 router.get('/login/:id', trainerController.show)
 
+router.get('/login/:id/update', trainerController.update)
+
+router.get('/login/:id/search', trainerController.search)
+
 module.exports = router

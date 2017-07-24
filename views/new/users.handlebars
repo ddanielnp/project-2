@@ -3,6 +3,6 @@
 
 {{#each users as |user|}}
 <h2>logged in as {{user.name}}</h2>
-<a href="/users/{{user.id}}/update">Update particulars</a>
-<a href="/users/{{user.id}}/search">Search for a trainer</a>
+<a href="/users/login/{{user.id}}/update">Update particulars</a>
+<a href="/users/login/{{user.id}}/search">Search for a trainer</a>
 {{/each}}

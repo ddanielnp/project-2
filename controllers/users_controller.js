@@ -45,7 +45,7 @@ function update (req, res) {
       users: users
     })
   })
-}
+} // close for updte function ----------
 
 function search (req, res) {
   User.find({'_id': '59730ae43ec5ae1d0ea67ea3'}, function (err, users) {
