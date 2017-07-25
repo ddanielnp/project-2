@@ -1,11 +1,11 @@
-<h1>userpage</h1>
 
 {{#if users}}
   {{#each users as |user|}}
-    {{ user.name }}
-    <a href="/logout">Logout</a>
+  <h2>Hello {{ user.name }}</h2>
+
   {{/each}}
   <a href="/users/update">Update particulars</a>
   <a href="/users/search">Search for a trainer</a>
+  <a href="/logout">Logout</a>
 
 {{/if}}

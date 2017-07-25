@@ -45,7 +45,7 @@ function update (req, res) {
       users: users
     })
   })
-} // close for updte function ----------
+} // close for update function ----------
 
 function search (req, res) {
   User.find({'_id': req.session.passport.user}, function (err, users) {
