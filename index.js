@@ -31,7 +31,9 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }))
-// app.use(flash())
+app.use(passport.initialize())
+app.use(passport.session())
+// app.use(flash())  // has to be after session
 
 // set middleware
 app.use(express.static('public'))
@@ -39,9 +41,6 @@ app.engine('handlebars', exphbs({
   defaultLayout: 'main'
 }))
 app.set('view engine', 'handlebars')
-
-app.use(passport.initialize())
-app.use(passport.session())
 // listen to ajax request - json post
 app.use(bodyParser.json())
 // listen to form data submission

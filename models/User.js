@@ -26,10 +26,10 @@ const userSchema = new Schema({
     latitude: Number,
     longitude: Number
   },
-  trainers: [{
+  trainer: {
     type: Schema.Types.ObjectId,
     ref: 'Trainer'
-  }],
+  },
   height: Number,
   weight: Number
 })

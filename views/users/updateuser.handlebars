@@ -1,13 +1,11 @@
-{{#if user}}
   <h3>Update page for {{user.name}}</h3>
   <a href="/users/profile">My profile page</a>
   <a href="/users/search">Search for a trainer</a>
   <a href="/logout">Logout</a>
-{{/if}}
 
-<form action="/users" method="post">
+<form action="/users/update" method="post">
   <div>
-    <label>Verify your password:</label>
+    <label>Update your password:</label>
     <input type="text" name="user[password]" placeholder="Input password">
   </div>
 

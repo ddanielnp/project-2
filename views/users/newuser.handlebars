@@ -1,5 +1,7 @@
 {{#if user}}
+<h2>You are currently signed in, {{user.name}}</h2>
 <a href="/users/profile">Back to profile</a>
+<a href="/logout">Logout</a>
 {{/if}}
 
 {{#unless user}}

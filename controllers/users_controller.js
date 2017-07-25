@@ -1,5 +1,5 @@
 const User = require('../models/User')
-// const Trainer = require('../models/Trainer')
+const Trainer = require('../models/Trainer')
 const request = require('request')
 
 function create (req, res) {
@@ -21,41 +21,22 @@ function create (req, res) {
 } // close for create function ----------
 
 function show (req, res) {
-  // User.findById(req.user.id, function (err, user) {
-  //   if (err) {
-  //     console.log(err)
-  //     return
-  //   }
-  // })
   res.render('users/userpage', {
     user: req.user
   })
 } // close for show function ----------
 
 function update (req, res) {
-  // User.find({'_id': req.user}, function (err, users) {
-  //   if (err) {
-  //     console.log(err)
-  //     return
-  //   }
-    res.render('users/updateuser', {
-      user: req.user
-    })
-  // })
+  res.render('users/updateuser', {
+    user: req.user
+  })
 } // close for update function ----------
 
 function search (req, res) {
-  // User.find({'_id': req.user}, function (err, users) {
-  //   if (err) {
-  //     console.log(err)
-  //     return
-  //   }
-    res.render('users/userform', {
-      user: req.user
-    })
-  // })
+  res.render('users/userform', {
+    user: req.user
+  })
   // newUser.trainers.push(req.body.trainer.id)
-
 } // close for search function ----------
 
 module.exports = {
