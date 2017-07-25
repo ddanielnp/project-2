@@ -1,0 +1,11 @@
+
+{{#if trainers}}
+  {{#each trainers as |trainer|}}
+  <h2>Hello {{ trainer.name }}</h2>
+
+  {{/each}}
+  <a href="/trainers/update">Update particulars</a>
+  <a href="/trainers/search">Search for a client</a>
+  <a href="/logout">Logout</a>
+
+{{/if}}

@@ -5,12 +5,12 @@ const passport = require('../config/passport')
 const usersController = require('../controllers/users_controller')
 
 router.get('/', function (req, res) {
-  res.render('new/newusers')
+  res.render('users/newuser')
 })
 router.post('/', usersController.create)
 // ----------
 router.get('/login', function (req, res) {
-  res.render('login')
+  res.render('users/userlogin')
 })
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/users/profile',
@@ -18,11 +18,6 @@ router.post('/login', passport.authenticate('local', {
 }))
 // ----------
 router.get('/profile', usersController.show)
-// router.get('/profile', function (req, res) {
-//   res.render('new/users', {
-//     user: req.session.passport.user
-//   })
-// })
 
 router.get('/update', usersController.update)
 

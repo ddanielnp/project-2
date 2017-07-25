@@ -24,12 +24,12 @@ function create (req, res) {
 
 function show (req, res) {
   // getting all places from DB
-  Trainer.find({'_id': '59730ce114f06b1d77db8163'}, function (err, trainers) {
+  Trainer.find({'_id': req.session.passport.trainer}, function (err, trainers) {
     if (err) {
       console.log(err)
       return
     }
-    res.render('new/trainers', {
+    res.render('trainers/trainerpage', {
       trainers: trainers
     })
   })

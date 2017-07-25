@@ -29,7 +29,7 @@ function show (req, res) {
       console.log(err)
       return
     }
-    res.render('new/users', {
+    res.render('users/userpage', {
       users: users
     })
   })
@@ -41,7 +41,7 @@ function update (req, res) {
       console.log(err)
       return
     }
-    res.render('new/updateuser', {
+    res.render('users/updateuser', {
       users: users
     })
   })
@@ -53,7 +53,7 @@ function search (req, res) {
       console.log(err)
       return
     }
-    res.render('form', {
+    res.render('users/userform', {
       users: users
     })
   })

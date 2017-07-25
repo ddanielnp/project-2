@@ -1,22 +1,32 @@
 const express = require('express')
 const router = express.Router()
+const passport = require('../config/passport')
 
-const trainerController = require('../controllers/trainers_controller')
+const trainersController = require('../controllers/trainers_controller')
 
 router.get('/', function (req, res) {
-  res.render('new/newtrainers')
+  res.render('trainers/newtrainer')
 })
 
-router.post('/', trainerController.create)
-
+router.post('/', trainersController.create)
+// ----------
 router.get('/login', function (req, res) {
-  res.render('login')
+  res.render('trainers/trainerlogin')
 })
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/trainers/profile',
+  failureRedirect: '/trainers'
+}))
+// ----------
+router.get('/profile', trainersController.show)
+// router.get('/profile', function (req, res) {
+//   res.render('new/users', {
+//     user: req.session.passport.user
+//   })
+// })
 
-router.get('/login/:id', trainerController.show)
+router.get('/update', trainersController.update)
 
-router.get('/login/:id/update', trainerController.update)
-
-router.get('/login/:id/search', trainerController.search)
+router.get('/search', trainersController.search)
 
 module.exports = router

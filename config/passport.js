@@ -15,6 +15,7 @@ passport.deserializeUser(function (id, next) {
   })
 })
 
+// verify user login
 passport.use(
   new LocalStrategy({
     usernameField: 'user[email]',
@@ -43,6 +44,6 @@ function localVerify (req, userEmail, userPassword, next) {
       next(null)
     }
   })
-}
+} // close for localVerify
 
 module.exports = passport

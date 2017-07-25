@@ -1,0 +1,25 @@
+{{#each trainers as |trainer|}}
+  <a href="/users/profile">Back to trainer page</a>
+  <h1>update page for {{trainer.name}}</h1>
+
+{{/each}}
+<form action="/trainers" method="post">
+  <div>
+    <label>Verify your password:</label>
+    <input type="text" name="" placeholder="Input password">
+  </div>
+
+  <div>
+    <label>Update your email:</label>
+    <input type="text" name="" placeholder="Input password">
+  </div>
+
+  <div>
+    <div>
+      <label>Update your preferred location:</label>
+      <input type="text" name="" placeholder="Input location">
+    </div>
+
+
+    <button>Update Account</button>
+</form>
