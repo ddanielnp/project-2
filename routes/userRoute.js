@@ -17,6 +17,11 @@ router.post('/login', passport.authenticate('local', {
   failureRedirect: '/users'
 }))
 // ----------
+// router.get('/profile', (req, res) => {
+//   res.send({
+//     user: req.user
+//   })
+// })
 router.get('/profile', usersController.show)
 
 router.get('/update', usersController.update)

@@ -24,7 +24,7 @@ function create (req, res) {
 
 function show (req, res) {
   // getting all places from DB
-  User.find({'_id': req.session.passport.user}, function (err, users) {
+  User.find({'_id': req.user}, function (err, users) {
     if (err) {
       console.log(err)
       return
@@ -36,7 +36,7 @@ function show (req, res) {
 } // close for show function ----------
 
 function update (req, res) {
-  User.find({'_id': req.session.passport.user}, function (err, users) {
+  User.findOne({'_id': req.user}, function (err, users) {
     if (err) {
       console.log(err)
       return
@@ -48,7 +48,7 @@ function update (req, res) {
 } // close for update function ----------
 
 function search (req, res) {
-  User.find({'_id': req.session.passport.user}, function (err, users) {
+  User.findOne({'_id': req.user}, function (err, users) {
     if (err) {
       console.log(err)
       return

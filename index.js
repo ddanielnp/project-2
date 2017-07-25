@@ -41,6 +41,7 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars')
 
 app.use(passport.initialize())
+app.use(passport.session())
 // listen to ajax request - json post
 app.use(bodyParser.json())
 // listen to form data submission
@@ -52,13 +53,19 @@ const trainerRoute = require('./routes/trainerRoute')
 app.get('/', function (req, res) {
   res.render('home')
 })
+
 // user routes
 app.use('/users', userRoute)
 // trainer routes
 app.use('/trainers', trainerRoute)
 
+app.get('/logout', function (req, res) {
+  req.logout()
+  res.redirect('/')
+})
+
 //
 const port = 3000
 app.listen(port, function () {
-  console.log(`express is running on ${port}`)
+  console.log(`project-2 is running on port ${port}`)
 })
