@@ -1,33 +1,35 @@
-{{#each users as |user|}}
-  <a href="/users/profile">Back to user page</a>
-  <h1>update page for {{user.name}}</h1>
+{{#if user}}
+  <h3>Update page for {{user.name}}</h3>
+  <a href="/users/profile">My profile page</a>
+  <a href="/users/search">Search for a trainer</a>
+  <a href="/logout">Logout</a>
+{{/if}}
 
-{{/each}}
 <form action="/users" method="post">
   <div>
     <label>Verify your password:</label>
-    <input type="text" name="" placeholder="Input password">
+    <input type="text" name="user[password]" placeholder="Input password">
   </div>
 
   <div>
     <label>Update your email:</label>
-    <input type="text" name="" placeholder="Input password">
+    <input type="text" name="user[email]" placeholder="Input password">
   </div>
 
   <div>
     <div>
       <label>Update your preferred location:</label>
-      <input type="text" name="" placeholder="Input location">
+      <input type="text" name="user[location]" placeholder="Input location">
     </div>
 
     <div>
       <label>Height:</label>
-      <input type="text" name="" placeholder="Update your height">
+      <input type="text" name="user[height]" placeholder="Update your height">
     </div>
 
     <div>
       <label>Weight:</label>
-      <input type="text" name="" placeholder="Update your weight">
+      <input type="text" name="user[weight]" placeholder="Update your weight">
     </div>
 
     <button>Update Account</button>

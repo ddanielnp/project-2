@@ -22,11 +22,16 @@ const userSchema = new Schema({
     minlength: [8, 'Password must be between 8 and 99 characters'],
     maxlength: [99, 'Password must be between 8 and 99 characters']
   },
-  location: String,
+  location: {
+    latitude: Number,
+    longitude: Number
+  },
   trainers: [{
     type: Schema.Types.ObjectId,
     ref: 'Trainer'
-  }]
+  }],
+  height: Number,
+  weight: Number
 })
 
 userSchema.pre('save', function (next) {

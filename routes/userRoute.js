@@ -5,7 +5,9 @@ const passport = require('../config/passport')
 const usersController = require('../controllers/users_controller')
 
 router.get('/', function (req, res) {
-  res.render('users/newuser')
+  res.render('users/newuser', {
+    user: req.user
+  })
 })
 router.post('/', usersController.create)
 // ----------
@@ -22,10 +24,18 @@ router.post('/login', passport.authenticate('local', {
 //     user: req.user
 //   })
 // })
-router.get('/profile', usersController.show)
+router.get('/profile', isAuthenticated, usersController.show)
 
-router.get('/update', usersController.update)
+router.get('/update', isAuthenticated, usersController.update)
 
-router.get('/search', usersController.search)
+router.get('/search', isAuthenticated, usersController.search)
+
+function isAuthenticated (req, res, next) {
+  if(req.isAuthenticated()) {
+    next()
+  } else {
+    res.redirect('/')
+  }
+}
 
 module.exports = router

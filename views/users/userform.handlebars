@@ -1,14 +1,16 @@
-{{#each users as |user|}}
-<a href="/users/profile">Back to user page</a>
-<h3>Signed in as {{user.name}}</h3>
-{{/each}}
+{{#if user}}
+  <h3>Find a trainer for {{user.name}}</h3>
+  <a href="/users/profile">My profile page</a>
+  <a href="/users/update">Update particulars</a>
+  <a href="/logout">Logout</a>
+{{/if}}
 
-  <form id="findlocation" action="index.html" method="post">
+<form id="findlocation" action="index.html" method="post">
 
-    <label>
-      Search for a trainer near location
+  <label>
+      Input search location
       <input type="text" name="location" placeholder="Search location">
     </label>
 
-    <button>Search now</button>
-  </form>
+  <button>Search now</button>
+</form>

@@ -10,8 +10,6 @@ function create (req, res) {
     location: req.body.user.location
   })
 
-  // newUser.trainers.push(req.body.trainer.id)
-
   newUser.save(function (err, createdUser) {
     if (err) {
       return res.send(err)
@@ -23,40 +21,41 @@ function create (req, res) {
 } // close for create function ----------
 
 function show (req, res) {
-  // getting all places from DB
-  User.find({'_id': req.user}, function (err, users) {
-    if (err) {
-      console.log(err)
-      return
-    }
-    res.render('users/userpage', {
-      users: users
-    })
+  // User.findById(req.user.id, function (err, user) {
+  //   if (err) {
+  //     console.log(err)
+  //     return
+  //   }
+  // })
+  res.render('users/userpage', {
+    user: req.user
   })
 } // close for show function ----------
 
 function update (req, res) {
-  User.findOne({'_id': req.user}, function (err, users) {
-    if (err) {
-      console.log(err)
-      return
-    }
+  // User.find({'_id': req.user}, function (err, users) {
+  //   if (err) {
+  //     console.log(err)
+  //     return
+  //   }
     res.render('users/updateuser', {
-      users: users
+      user: req.user
     })
-  })
+  // })
 } // close for update function ----------
 
 function search (req, res) {
-  User.findOne({'_id': req.user}, function (err, users) {
-    if (err) {
-      console.log(err)
-      return
-    }
+  // User.find({'_id': req.user}, function (err, users) {
+  //   if (err) {
+  //     console.log(err)
+  //     return
+  //   }
     res.render('users/userform', {
-      users: users
+      user: req.user
     })
-  })
+  // })
+  // newUser.trainers.push(req.body.trainer.id)
+
 } // close for search function ----------
 
 module.exports = {

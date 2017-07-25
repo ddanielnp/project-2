@@ -1,3 +1,8 @@
+{{#if user}}
+<a href="/users/profile">Back to profile</a>
+{{/if}}
+
+{{#unless user}}
 <a href="/users/login">Client Login</a>
 
 <h2>Sign up as a client</h2>
@@ -32,3 +37,4 @@
   </div>
 
   <button>Submit</button>
+{{/unless}}

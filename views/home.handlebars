@@ -1,17 +1,13 @@
-<a href="/users">Sign up as a client</a>
-<a href="/users/login">Client Login</a>
-<a href="/trainers/login">Trainer Login</a>
-
 {{#if user}}
-<a href="#">Logout</a>
-{{user.name}}
-
+  <h2>Hello {{ user.name }}, you are currently logged in.</h2>
+  <a href="/users/profile">My profile page</a>
 {{/if}}
 
 {{#unless user}}
-<a href="#">signin</a>
+<a href="/users">Sign up as a client</a>
+<a href="/users/login">Log in as a client</a>
+<a href="/trainers/login">Log in as a trainer</a>
 {{/unless}}
-
 
 <h2>About us</h2>
 

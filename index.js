@@ -51,7 +51,9 @@ const userRoute = require('./routes/userRoute')
 const trainerRoute = require('./routes/trainerRoute')
 
 app.get('/', function (req, res) {
-  res.render('home')
+  res.render('home', {
+    user: req.user
+  })
 })
 
 // user routes
