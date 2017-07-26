@@ -1,0 +1,13 @@
+<a href="/users/search">Search Again</a>
+
+<div class="found">
+  {{#if allTrainers}}
+    {{#each allTrainers as |trainers|}}
+      <ul>
+        <li>
+          {{trainers.name}} at {{trainers.location}}
+        </li>
+      </ul>
+    {{/each}}
+  {{/if}}
+</div>

@@ -33,11 +33,25 @@ router.get('/update', isAuthenticated, function (req, res) {
 router.post('/update', isAuthenticated, usersController.update)
 
 // ---------- search
-router.get('/search', isAuthenticated, usersController.search)
+router.get('/search', isAuthenticated, function (req, res) {
+  res.render('users/userform', {
+    user: req.user
+  })
+})
+
+// router.get('/search/name', )
+router.post('/search/name', usersController.searchName)
+
+router.post('/search/location', usersController.searchLocation)
+
+router.post('/search/all', usersController.searchAll)
+
+// ---------- delete
+router.get('/delete', usersController.destroy)
 
 // ---------- authentication
 function isAuthenticated (req, res, next) {
-  if(req.isAuthenticated()) {
+  if (req.isAuthenticated()) {
     next()
   } else {
     res.redirect('/')
@@ -45,7 +59,7 @@ function isAuthenticated (req, res, next) {
 }
 
 function notAuthenticated (req, res, next) {
-  if(!req.isAuthenticated()) {
+  if (!req.isAuthenticated()) {
     next()
   } else {
     res.redirect('/users/profile')

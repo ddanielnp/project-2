@@ -26,60 +26,87 @@ function show (req, res) {
   })
 } // close for show function ----------
 
-  // User.findOneAndUpdate({_id: req.user.id}, {
-  //   var updatedUser = new User({
+// User.findOneAndUpdate({_id: req.user.id}, {
+//   var updatedUser = new User({
 
 function update (req, res) {
   // res.send(req.user)
-  User.findOneAndUpdate({_id: req.user.id},
-    { $set:
-    {
+  User.findOneAndUpdate({
+    _id: req.user.id
+  }, {
+    $set: {
       password: req.body.user.password,
       email: req.body.user.email,
       location: req.body.user.location,
       height: req.body.user.height,
       weight: req.body.user.weight
     }
-    }, function (err, data) {
-      if (err) {
-        console.log(err)
-      }
-      res.redirect('/users/profile')
-    })
-
-  // var updatedUser = new User({
-  // })
-  //
-  // updatedUser.save
-  //
-
-  // }, function (err, data) {
-  //   if (err) {
-  //     return res.send(err)
-  //   }
-  //   res.redirect('/users/profile')
-  // })
-
-  // updatedUser.save(function (err, createdUser) {
-  //   if (err) {
-  //     return res.send(err)
-  //     // req.flash('errors', err.message)
-  //     // next(err)
-  //   }
-  //   res.redirect('users/profile')
-  // })
+  }, function (err, data) {
+    if (err) {
+      console.log(err)
+    }
+    res.redirect('/users/profile')
+  })
 } // close for update function ----------
 
-function search (req, res) {
-  res.render('users/userform', {
-    user: req.user
+function searchName (req, res) {
+  // res.send(req.body.search.name)
+  Trainer
+    .findOne({
+      name: req.body.search.name
+    })
+    .exec(function (err, data) {
+      if (err) return res.send(err)
+      res.render('users/searchname', {
+        trainer: data,
+        user: req.user
+      })
+    })
+} // close for searchName function ----------
+
+function searchLocation (req, res) {
+  // res.send('search location')
+  Trainer
+    .findOne({
+      location: req.body.search.location
+    })
+    .exec(function (err, data) {
+      if (err) return res.send(err)
+      res.render('users/searchlocation', {
+        location: data,
+        user: req.user
+      })
+    })
+} // close for searchLocation function ----------
+
+function searchAll (req, res) {
+  // res.send('search all')
+  Trainer
+    .find({})
+    .exec(function (err, data) {
+      if (err) return res.send(err)
+      res.render('users/searchall', {
+        allTrainers: data,
+        user: req.user
+      })
+    })
+} // close for searchAll function ----------
+
+function destroy (req, res) {
+  User.findOneAndRemove({_id: req.user.id}, function (err, data) {
+    if (err) {
+      console.log(err)
+    }
+    res.redirect('/')
   })
-  // newUser.trainers.push(req.body.trainer.id)
-} // close for search function ----------
+}
 
 module.exports = {
   create,
   show,
   update,
-  search
+  searchName,
+  searchLocation,
+  searchAll,
+  destroy
 }
