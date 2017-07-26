@@ -52,13 +52,13 @@ function update (req, res) {
 function searchName (req, res) {
   // res.send(req.body.search.name)
   Trainer
-    .findOne({
+    .find({
       name: req.body.search.name
     })
     .exec(function (err, data) {
       if (err) return res.send(err)
       res.render('users/searchname', {
-        trainer: data,
+        trainer: data
       })
     })
 } // close for searchName function ----------
@@ -66,13 +66,13 @@ function searchName (req, res) {
 function searchLocation (req, res) {
   // res.send('search location')
   Trainer
-    .findOne({
+    .find({
       location: req.body.search.location
     })
     .exec(function (err, data) {
       if (err) return res.send(err)
       res.render('users/searchlocation', {
-        trainer: data,
+        trainer: data
       })
     })
 } // close for searchLocation function ----------
@@ -84,7 +84,7 @@ function searchAll (req, res) {
     .exec(function (err, data) {
       if (err) return res.send(err)
       res.render('users/searchall', {
-        trainers: data,
+        trainers: data
       })
     })
 } // close for searchAll function ----------

@@ -3,10 +3,12 @@
 <div class="found">
   {{#if trainer}}
   <h3>Search results by location</h3>
-    <ul>
-      <li>
-        {{trainer.name}} at {{trainer.location}}
-      </li>
-    </ul>
+    {{#each trainer as |trainer|}}
+      <ul>
+        <li>
+          {{trainer.name}} at {{trainer.location}}
+        </li>
+      </ul>
+    {{/each}}
   {{/if}}
 </div>

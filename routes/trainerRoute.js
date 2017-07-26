@@ -33,7 +33,21 @@ router.get('/update', isAuthenticated, function (req, res) {
 router.post('/update', isAuthenticated, trainersController.update)
 
 // search ----------
-router.get('/search', isAuthenticated, trainersController.search)
+router.get('/search', isAuthenticated, function (req, res) {
+  res.render('trainers/trainerform', {
+    trainer: req.user
+  })
+})
+
+// router.get('/search')
+router.post('/search/name', trainersController.searchName)
+
+router.post('/search/location', trainersController.searchLocation)
+
+router.post('/search/all', trainersController.searchAll)
+
+// ---------- delete
+router.get('/delete', trainersController.destroy)
 
 // authentication ----------
 function isAuthenticated (req, res, next) {

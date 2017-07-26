@@ -3,12 +3,31 @@
 <a href="/trainers/update">Update particulars</a>
 <a href="/logout">Logout</a>
 
-<form id="findlocation" action="index.html" method="post">
-
-  <label>
-      Input search location
-      <input type="text" name="search[location]" placeholder="Search location">
+<div class="search-div">
+  <form id="searchUser" action="/trainers/search/name" method="post">
+    <label>
+      Search by User Name:
+      <input type="text" name="search[name]" placeholder="Search by name">
     </label>
+    <button>Search Name</button>
+  </form>
+</div>
 
-  <button>Search now</button>
-</form>
+<div class="search-div">
+  <form id="searchUser" action="/trainers/search/location" method="post">
+    <label>
+    Search by User location
+    <input type="text" name="search[location]" placeholder="Search by location">
+  </label>
+    <button>Search Location</button>
+  </form>
+</div>
+
+<div class="search-div">
+  <form id="searchUser" action="/trainers/search/all" method="post">
+
+    <label>Search all Users</label>
+
+    <button>Show me!</button>
+  </form>
+</div>

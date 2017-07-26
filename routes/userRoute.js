@@ -39,7 +39,7 @@ router.get('/search', isAuthenticated, function (req, res) {
   })
 })
 
-// router.get('/search/name', )
+// router.get('/search', )
 router.post('/search/name', usersController.searchName)
 
 router.post('/search/location', usersController.searchLocation)
