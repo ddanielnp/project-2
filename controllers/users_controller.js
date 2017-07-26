@@ -26,10 +26,48 @@ function show (req, res) {
   })
 } // close for show function ----------
 
+  // User.findOneAndUpdate({_id: req.user.id}, {
+  //   var updatedUser = new User({
+
 function update (req, res) {
-  res.render('users/updateuser', {
-    user: req.user
-  })
+  // res.send(req.user)
+  User.findOneAndUpdate({_id: req.user.id},
+    { $set:
+    {
+      password: req.body.user.password,
+      email: req.body.user.email,
+      location: req.body.user.location,
+      height: req.body.user.height,
+      weight: req.body.user.weight
+    }
+    }, function (err, data) {
+      if (err) {
+        console.log(err)
+      }
+      res.redirect('/users/profile')
+    })
+
+  // var updatedUser = new User({
+  // })
+  //
+  // updatedUser.save
+  //
+
+  // }, function (err, data) {
+  //   if (err) {
+  //     return res.send(err)
+  //   }
+  //   res.redirect('/users/profile')
+  // })
+
+  // updatedUser.save(function (err, createdUser) {
+  //   if (err) {
+  //     return res.send(err)
+  //     // req.flash('errors', err.message)
+  //     // next(err)
+  //   }
+  //   res.redirect('users/profile')
+  // })
 } // close for update function ----------
 
 function search (req, res) {

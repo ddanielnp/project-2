@@ -22,7 +22,9 @@ router.post('/login', passport.authenticate('local', {
 router.get('/profile', isAuthenticated, usersController.show)
 
 // ---------- update
-router.get('/update', isAuthenticated, usersController.update)
+router.get('/update', isAuthenticated, function (req, res) {
+  res.render('users/updateuser')
+})
 
 router.post('/update', isAuthenticated, usersController.update)
 
