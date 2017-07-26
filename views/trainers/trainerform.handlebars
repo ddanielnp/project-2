@@ -1,14 +1,14 @@
-{{#each trainers as |trainer|}}
-<a href="/trainers/profile">Back to trainer page</a>
-<h3>Signed in as {{trainer.name}}</h3>
-{{/each}}
+<h3>Find a client for {{trainer.name}}</h3>
+<a href="/trainers/profile">My profile page</a>
+<a href="/trainers/update">Update particulars</a>
+<a href="/logout">Logout</a>
 
-  <form id="findlocation" action="index.html" method="post">
+<form id="findlocation" action="index.html" method="post">
 
-    <label>
-      Search for a user near location
-      <input type="text" name="location" placeholder="Search location">
+  <label>
+      Input search location
+      <input type="text" name="search[location]" placeholder="Search location">
     </label>
 
-    <button>Search now</button>
-  </form>
+  <button>Search now</button>
+</form>

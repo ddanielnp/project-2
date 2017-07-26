@@ -22,10 +22,7 @@ const trainerSchema = new Schema({
     minlength: [8, 'Password must be between 8 and 99 characters'],
     maxlength: [99, 'Password must be between 8 and 99 characters']
   },
-  location: {
-    latitude: Number,
-    longitude: Number
-  },
+  location: String,
   users: [{
     type: Schema.Types.ObjectId,
     ref: 'User'

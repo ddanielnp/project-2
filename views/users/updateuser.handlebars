@@ -1,7 +1,7 @@
-  <h3>Update page for {{user.name}}</h3>
-  <a href="/users/profile">My profile page</a>
-  <a href="/users/search">Search for a trainer</a>
-  <a href="/logout">Logout</a>
+<h3>Update page for {{user.name}}</h3>
+<a href="/users/profile">My profile page</a>
+<a href="/users/search">Search for a trainer</a>
+<a href="/logout">Logout</a>
 
 <form action="/users/update?_method=put" method="post">
   <div>
@@ -15,20 +15,19 @@
   </div>
 
   <div>
-    <div>
-      <label>Update your preferred location:</label>
-      <input type="text" name="user[location]" placeholder="Input location">
-    </div>
+    <label>Update your preferred location:</label>
+    <input type="text" name="user[location]" placeholder="Input location">
+  </div>
 
-    <div>
-      <label>Height:</label>
-      <input type="text" name="user[height]" placeholder="Update your height">
-    </div>
+  <div>
+    <label>Height:</label>
+    <input type="text" name="user[height]" placeholder="Update your height">
+  </div>
 
-    <div>
-      <label>Weight:</label>
-      <input type="text" name="user[weight]" placeholder="Update your weight">
-    </div>
+  <div>
+    <label>Weight:</label>
+    <input type="text" name="user[weight]" placeholder="Update your weight">
+  </div>
 
-    <button>Update Account</button>
+  <button>Update Account</button>
 </form>

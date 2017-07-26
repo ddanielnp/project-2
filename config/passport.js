@@ -1,6 +1,7 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const User = require('../models/User')
+const Trainer = require('../models/Trainer')
 
 // it will store into the session , currently logged in user
 // when success => next(null, foundUser)
@@ -11,21 +12,36 @@ passport.serializeUser(function (user, next) {
 // it will open the session, and convert id stored in session into the actual user object, accessible in req.user
 passport.deserializeUser(function (id, next) {
   User.findById(id, function (err, user) {
-    next(err, user)
+    if (user) {
+      next(err, user)
+    } else {
+      Trainer.findById(id, function (err, trainer) {
+        next(err, trainer)
+      })
+    }
   })
 })
 
 // verify user login
-passport.use(
-  new LocalStrategy({
-    usernameField: 'user[email]',
-    passwordField: 'user[password]',
-    passReqToCallback: true
-  },
-    localVerify
+passport.use('local-client',
+new LocalStrategy({
+  usernameField: 'user[email]',
+  passwordField: 'user[password]',
+  passReqToCallback: true
+},
+    localVerifyClient
   ))
 
-function localVerify (req, userEmail, userPassword, next) {
+passport.use('local-trainer',
+  new LocalStrategy({
+    usernameField: 'trainer[email]',
+    passwordField: 'trainer[password]',
+    passReqToCallback: true
+  },
+      localVerifyTrainer
+    ))
+
+function localVerifyClient (req, userEmail, userPassword, next) {
   User
   .findOne({
     email: userEmail
@@ -44,6 +60,27 @@ function localVerify (req, userEmail, userPassword, next) {
       next(null)
     }
   })
-} // close for localVerify
+} // close for localVerifyClient
+
+function localVerifyTrainer (req, trainerEmail, trainerPassword, next) {
+  Trainer
+  .findOne({
+    email: trainerEmail
+  })
+  .exec(function (err, foundUser) {
+    if (err) {
+      console.log('err', err)
+      return next(err) // goes to failureRedirect
+    }
+    console.log('trainerEmail', trainerEmail)
+    console.log('trainerPassword', trainerPassword)
+    if (foundUser && foundUser.validPassword(trainerPassword)) {
+      console.log('success, redirect to /profile')
+      next(null, foundUser) // goes to successRedirect
+    } else {
+      next(null)
+    }
+  })
+} // close for localVerifyTrainer
 
 module.exports = passport

@@ -1,11 +1,11 @@
-{{#each trainers as |trainer|}}
-  <a href="/users/profile">Back to trainer page</a>
-  <h1>update page for {{trainer.name}}</h1>
+<h3>update page for {{trainer.name}}</h3>
+<a href="/trainers/profile">Back to trainer page</a>
+<a href="/trainers/search">Search for a client</a>
+<a href="/logout">Logout</a>
 
-{{/each}}
-<form action="/trainers" method="post">
+<form action="/trainers/update?_method=put" method="post">
   <div>
-    <label>Verify your password:</label>
+    <label>Update your password:</label>
     <input type="text" name="" placeholder="Input password">
   </div>
 
@@ -15,11 +15,10 @@
   </div>
 
   <div>
-    <div>
-      <label>Update your preferred location:</label>
-      <input type="text" name="" placeholder="Input location">
-    </div>
+    <label>Update your preferred location:</label>
+    <input type="text" name="" placeholder="Input location">
+  </div>
 
 
-    <button>Update Account</button>
+  <button>Update Account</button>
 </form>

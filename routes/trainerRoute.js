@@ -4,29 +4,52 @@ const passport = require('../config/passport')
 
 const trainersController = require('../controllers/trainers_controller')
 
+// signup ----------
 router.get('/', function (req, res) {
   res.render('trainers/newtrainer')
 })
 
 router.post('/', trainersController.create)
-// ----------
-router.get('/login', function (req, res) {
+
+// login ----------
+router.get('/login', notAuthenticated, function (req, res) {
   res.render('trainers/trainerlogin')
 })
-router.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
+
+router.post('/login', passport.authenticate('local-trainer', {
+  successRedirect: '/trainers/profile',
   failureRedirect: '/trainers'
 }))
-// ----------
-router.get('/profile', trainersController.show)
-// router.get('/profile', function (req, res) {
-//   res.render('new/users', {
-//     user: req.session.passport.user
-//   })
-// })
+// profile ----------
+router.get('/profile', isAuthenticated, trainersController.show)
 
-router.get('/update', trainersController.update)
+// update ----------
+router.get('/update', isAuthenticated, function (req, res) {
+  res.render('trainers/updatetrainer', {
+    trainer: req.user
+  })
+})
 
-router.get('/search', trainersController.search)
+router.post('/update', isAuthenticated, trainersController.update)
+
+// search ----------
+router.get('/search', isAuthenticated, trainersController.search)
+
+// authentication ----------
+function isAuthenticated (req, res, next) {
+  if(req.isAuthenticated()) {
+    next()
+  } else {
+    res.redirect('/')
+  }
+}
+
+function notAuthenticated (req, res, next) {
+  if(!req.isAuthenticated()) {
+    next()
+  } else {
+    res.redirect('/trainers/profile')
+  }
+}
 
 module.exports = router
