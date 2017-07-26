@@ -59,7 +59,6 @@ function searchName (req, res) {
       if (err) return res.send(err)
       res.render('users/searchname', {
         trainer: data,
-        user: req.user
       })
     })
 } // close for searchName function ----------
@@ -73,8 +72,7 @@ function searchLocation (req, res) {
     .exec(function (err, data) {
       if (err) return res.send(err)
       res.render('users/searchlocation', {
-        location: data,
-        user: req.user
+        trainer: data,
       })
     })
 } // close for searchLocation function ----------
@@ -86,8 +84,7 @@ function searchAll (req, res) {
     .exec(function (err, data) {
       if (err) return res.send(err)
       res.render('users/searchall', {
-        allTrainers: data,
-        user: req.user
+        trainers: data,
       })
     })
 } // close for searchAll function ----------

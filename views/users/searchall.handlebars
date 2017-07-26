@@ -1,8 +1,8 @@
 <a href="/users/search">Search Again</a>
 
 <div class="found">
-  {{#if allTrainers}}
-    {{#each allTrainers as |trainers|}}
+  {{#if trainers}}
+    {{#each trainers as |trainers|}}
       <ul>
         <li>
           {{trainers.name}} at {{trainers.location}}
