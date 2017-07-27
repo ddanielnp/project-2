@@ -47,7 +47,7 @@ router.post('/search/location', usersController.searchLocation)
 router.post('/search/all', usersController.searchAll)
 
 // ---------- delete
-router.get('/delete', usersController.destroy)
+router.post('/delete', usersController.destroy)
 
 // ---------- authentication
 function isAuthenticated (req, res, next) {

@@ -7,6 +7,8 @@ const MongoStore = require('connect-mongo')(session)
 const bodyParser = require('body-parser')
 const flash = require('connect-flash')
 const passport = require('./config/passport')
+const methodOverride = require('method-override')
+
 
 const url = process.env.MLAB_URI || 'mongodb://localhost:27017/project-2'
 
