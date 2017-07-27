@@ -28,7 +28,7 @@ app.use(session({
   store: new MongoStore({
     url: url
   }),
-  secret: 'foo',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true
 }))
