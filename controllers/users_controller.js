@@ -106,6 +106,19 @@ function destroy (req, res) {
   })
 }
 
+function reference (req, res) {
+  // res.send(req.body)
+  User.findOne({_id: req.user.id}, function (err, data) {
+    if (err) res.send(err)
+
+    if (!data.trainers.includes(`${req.body.id}`)) {
+      data.trainers.push(req.body.id)
+      data.save()
+    }
+    res.send(data)
+  })
+}
+
 module.exports = {
   create,
   show,
@@ -113,5 +126,6 @@ module.exports = {
   searchName,
   searchLocation,
   searchAll,
-  destroy
+  destroy,
+  reference
 }

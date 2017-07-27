@@ -49,6 +49,9 @@ router.post('/search/all', usersController.searchAll)
 // ---------- delete
 router.post('/delete', usersController.destroy)
 
+//
+router.post('/updateUser', usersController.reference)
+
 // ---------- authentication
 function isAuthenticated (req, res, next) {
   if (req.isAuthenticated()) {

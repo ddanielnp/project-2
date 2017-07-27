@@ -1,20 +1,27 @@
 <a href="/users/search">Search Again</a>
 
-<div class="found">
+<div id="found">
   {{#if trainers}}
     <div id="map"></div>
     {{#each trainers as |trainers|}}
-      <ul>
+      <ul id="searchResults">
         <li>
           <div class="nameclass">
             Trainer's name : {{trainers.name}}
           </div>
           <div class="mapclass">
-            Trainer's Location: <a href="#latlng">{{trainers.location}}</a>
+            Trainer's location : <a href="#latlng">{{trainers.location}}</a>
           </div>
-          <button>Hire this trainer</button>
+          <button class="addBttn" data-id="{{trainers.id}}" data-name="{{trainers.name}}" data-geometry="{{trainers.geometry}}">Hire this trainer</button>
         </li>
       </ul>
     {{/each}}
   {{/if}}
 </div>
+
+{{trainers}}
+  {{!-- <script>var geometry = {{{ toJSON trainers }}}</script> --}}
+
+{{!-- <div class="data">
+  {{trainers.location}}
+</div> --}}

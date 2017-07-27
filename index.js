@@ -9,7 +9,6 @@ const flash = require('connect-flash')
 const passport = require('./config/passport')
 const methodOverride = require('method-override')
 
-
 const url = process.env.MLAB_URI || 'mongodb://localhost:27017/project-2'
 
 mongoose.Promise = global.Promise
@@ -41,6 +40,10 @@ app.use(passport.session())
 app.use(express.static('public'))
 app.engine('handlebars', exphbs({
   defaultLayout: 'main'
+  // helpers: {
+  //   toJSON: function (object) {
+  //     return JSON.stringify(object)
+  //   }}
 }))
 app.set('view engine', 'handlebars')
 // listen to ajax request - json post
