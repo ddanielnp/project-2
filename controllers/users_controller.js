@@ -14,10 +14,7 @@ function create (req, res) {
       email: req.body.user.email,
       password: req.body.user.password,
       location: req.body.user.location,
-      geometry: {
-        lat: latitude,
-        lng: longitude
-      }
+      geometry: [latitude, longitude]
     })
 
     newUser.save(function (err, createdUser) {
@@ -54,7 +51,7 @@ function update (req, res) {
     }
   }, function (err, data) {
     if (err) {
-      console.log(err)
+      return res.send(err)
     }
     res.redirect('/users/profile')
   })

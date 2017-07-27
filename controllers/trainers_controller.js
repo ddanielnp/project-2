@@ -14,10 +14,7 @@ function create (req, res) {
       email: req.body.trainer.email,
       password: req.body.trainer.password,
       location: req.body.trainer.location,
-      geometry: {
-        lat: latitude,
-        lng: longitude
-      }
+      geometry: [latitude, longitude]
     })
 
     newTrainer.save(function (err, createdTrainer) {
