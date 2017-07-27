@@ -26,7 +26,7 @@ const app = express()
 
 app.use(session({
   store: new MongoStore({
-    url: 'mongodb://localhost/project-2'
+    url: url
   }),
   secret: 'foo',
   resave: false,
@@ -75,7 +75,7 @@ app.get('/logout', function (req, res) {
 })
 
 //
-const port = 3000
+const port = process.env.PORT || 3000
 app.listen(port, function () {
   console.log(`project-2 is running on port ${port}`)
 })
