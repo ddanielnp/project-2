@@ -9,7 +9,7 @@ const flash = require('connect-flash')
 const passport = require('./config/passport')
 const methodOverride = require('method-override')
 
-const url = process.env.MLAB_URI || 'mongodb://localhost:27017/project-2'
+const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/project-2'
 
 mongoose.Promise = global.Promise
 mongoose.connect(url, {
@@ -35,6 +35,10 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 // app.use(flash())  // has to be after session
+
+app.locals = {
+  GOOGLE_MAPS_API: process.env.GOOGLE_MAPS_API
+}
 
 // set middleware
 app.use(express.static('public'))
