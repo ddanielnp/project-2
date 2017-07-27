@@ -2,12 +2,18 @@
 
 <div class="found">
   {{#if trainer}}
-  <div id="map"></div>
-  <h3>Search results by location</h3>
+    <div id="map"></div>
+    <h3>Search results by location</h3>
     {{#each trainer as |trainer|}}
       <ul>
         <li>
-          {{trainer.name}} at {{trainer.location}}
+          <div class="nameclass">
+            Trainer's name : {{trainer.name}}
+          </div>
+          <div class="mapclass">
+            Trainer's location : <a href="#latlng">{{trainer.location}}</a>
+          </div>
+          <button class="addBttn" data-id="{{trainer.id}}" data-name="{{trainer.name}}" data-geometry="{{trainer.geometry}}">Hire this trainer</button>
         </li>
       </ul>
     {{/each}}

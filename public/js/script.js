@@ -27,7 +27,7 @@ $(function () {
 
   // function initMap () {
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 11,
+    zoom: 12,
     streetViewControl: false,
     center: {lat: 1.352083, lng: 103.819836}
   })
@@ -35,10 +35,10 @@ $(function () {
 
   let locations = [
         // {geometry}
-        // {lat: 1.303841, lng: 103.833052},
+        {lat: 1.303841, lng: 103.833052},
         // {lat: 1.304409, lng: 103.834001},
         // {lat: 1.352585, lng: 103.835212},
-        // {lat: 1.312456, lng: 103.854821},
+        {lat: 1.312456, lng: 103.854821},
         {lat: 1.316181, lng: 103.764938}
   ]
 

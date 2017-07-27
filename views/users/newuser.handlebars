@@ -1,42 +1,42 @@
 {{#if user}}
-<h2>You are currently signed in, {{user.name}}</h2>
-<a href="/users/profile">Back to profile</a>
-<a href="/logout">Logout</a>
+  <h2>You are currently signed in, {{user.name}}</h2>
+  <a href="/users/profile">Back to profile</a>
+  <a href="/logout">Logout</a>
 {{/if}}
 
 {{#unless user}}
-<a href="/users/login">Client Login</a>
+  <a href="/users/login">Client Login</a>
 
-<h2>Sign up as a client</h2>
+  <h2>Sign up as a client</h2>
 
-<form id="newUserForm" action="/users" method="post">
-  <div class="form-grp">
-    <label>
+  <form id="newUserForm" action="/users" method="post">
+    <div class="form-grp">
+      <label>
       Name:
       <input type="text" name="user[name]" placeholder="Submit your name">
     </label>
-  </div>
+    </div>
 
-  <div class="form-grp">
-    <label>
+    <div class="form-grp">
+      <label>
         Email:
         <input type="text" name="user[email]" placeholder="e.g. 123@hotmail.com">
       </label>
-  </div>
+    </div>
 
-  <div class="form-grp">
-    <label>
+    <div class="form-grp">
+      <label>
       Password:
       <input type="text" name="user[password]" placeholder="Enter password">
     </label>
-  </div>
+    </div>
 
-  <div class="form-grp">
-    <label>
+    <div class="form-grp">
+      <label>
       Preferred Location:
       <input type="text" name="user[location]" placeholder="Submit location">
     </label>
-  </div>
+    </div>
 
-  <button>Submit</button>
+    <button>Submit</button>
 {{/unless}}
