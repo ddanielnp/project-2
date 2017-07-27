@@ -1,22 +1,33 @@
 const User = require('../models/User')
 const Trainer = require('../models/Trainer')
 const request = require('request')
+const geocoder = require('geocoder')
 
 function create (req, res) {
-  var newUser = new User({
-    name: req.body.user.name,
-    email: req.body.user.email,
-    password: req.body.user.password,
-    location: req.body.user.location
-  })
+  geocoder.geocode(`${req.body.user.location}`, function (err, data) {
+    if (err) return next(err, null)
+    var latitude = data.results[0].geometry.location.lat
+    var longitude = data.results[0].geometry.location.lng
 
-  newUser.save(function (err, createdUser) {
-    if (err) {
-      return res.send(err)
+    var newUser = new User({
+      name: req.body.user.name,
+      email: req.body.user.email,
+      password: req.body.user.password,
+      location: req.body.user.location,
+      geometry: {
+        lat: latitude,
+        lng: longitude
+      }
+    })
+
+    newUser.save(function (err, createdUser) {
+      if (err) {
+        return res.send(err)
       // req.flash('errors', err.message)
       // next(err)
-    }
-    res.redirect('users/login')
+      }
+      res.redirect('users/login')
+    })
   })
 } // close for create function ----------
 
