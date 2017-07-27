@@ -1,73 +1,131 @@
 # General Assembly Singapore Web Development Immersive 11
 
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Project #2: PersonlTrainr
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Project #2: [PersonlTrainr](https://personltrainr.herokuapp.com/)
 ---
 ### **User Story**
 
-story here
+ **PersonlTrainr** is created for individuals who have a busy schedule, and would like to hire a personal trainer to get professional training.
 
- **The App -**
-https://personltrainr.herokuapp.com/
+ **PersonlTrainr** aims to create a platform for users and enable them to engage the services of a personal trainer.
 
+ **PersonlTrainr** makes finding a personal trainer near your preferred location such as the condo gym, parks or fitness courts much easier.
+
+ ---
+
+ ### **Getting started**
+
+
+* Run `yarn install` or `npm install` to install dependencies
+ * Use `yarn start` or `npm start` to run index.js
+
+
+**Packages used**
+
+ ![Imgur](http://i.imgur.com/kaRunvr.png?1)
+
+ **Google Javascript API**
+
+ * API key obtained here [GOOGLE MAPS API](https://developers.google.com/maps/documentation/javascript/)
+
+ ![Imgur](http://i.imgur.com/KvbH9Hb.png)
+
+ ---
+
+ ### **Entity Relationship Diagram (ERD)**
+
+ ![Imgur](http://i.imgur.com/GTQaVTk.png?1)
+
+ A user will have 0 or 1 trainers
+
+ A trainer will have 0 or many trainers
 
 ---
 
 ### **RESTful Routes**
-* **R** for HTML and CSS (adhere to best practices)
 
-* Each boxes are in a `div` element for flexible DOM manipulation.
+**userRoute**  and  **trainerRoute**
 
-* **7 child divs** each for the various parts of the burger in the **userinput div** and the **displayburger div**
+`/users` - For signup - `/trainers`
 
----
+ * **renders** html signup handlebars, **post** request from signup form, calls `create()`
 
-### **Entity Relationship Diagram (ERD)**
+`/users/login` - For login `/trainers/login`
 
-* Layout was planned and used **CSS** to set widths, heights and alignments to the various `divs`.
+* **renders** html login handlebars, **post** request from login form calls `passport.authenticate()`
 
-* images of ingredients are stored through **CSS** ```background-image: url(./images/bgimg.jpg);```
+`/users/profile` - For user profile - `/trainers/profile`
 
+* **renders** calls `show()` to render user profile handlebars
 
-* **Adds** a shake movement when user inputs and serves a wrong combination. ```inputShake.classList.add('shake-hard', 'shake-constant')```
+`/users/update` - Update profile - `/trainers/update`
 
-* **Removes** shake movement after 1000ms ```setTimeout(function () {
-  inputShake.classList.remove('shake-hard', 'shake-constant')
-  }, 1000)```
+* **renders** html update form, **post** request from update form, calls `update()`
+
+**/Search** renders 3 forms, **post** request redirects to another page, and calls `searchName()` `searchLocation()` `searchAll()`
+
+`/users/search/name` - Search by name - `/trainers/search/name`
+
+`/users/search/location` - Search by location - `/trainers/search/location`
+
+`/users/search/all` - Search all - `/trainers/search/all`
+
 
   ---
 
-### **Javascript** for **DOM manipulation**
+### **Controllers**
 
-* `document.addEventListener` on 'keyup' of **Q** , **W** , **E** , **R** , **T** buttons plays manipulates the `div` classList to add the image to **userinput**, as well as to play a squish().  
+ **module.exports**
 
-* `document.addEventListener` on 'keyup' of **spacebar** runs the function `checkIngredient()`
+ **create()**
 
-* ```checkIngredient()```compares the **userinput** and **displayburger** of 7`divs` each. The 7`divs` were stored in an array so that the class could be manipulated.
-```
-userinput                               displayburger
-<div id="u6" class="hamItem"></div>     <div id="d6" class="hamObj"></div>
-```
+ `creates a new user/trainer.Schema and saves it into mongodb. Includes a geocoder that takes the location returns the latitude and longitude`
 
-* **Math.random** used to randomize the creation of an ingredient in the function```randomizeIngredient()```.
+ **show()**
 
-* function`level1()` calls `randomizeIngredient()` twice
-* function `level2()` calls `randomizeIngredient()` thrice, and so on..
+ `renders profilepage handlebars`
 
-* `resetClassPlayer()`  `resetClassDisplay()` Used to clear the added classes of ingredients to the divs.
+ **update()**
+ ```
+ User.findOneAndUpdate({
+   _id: req.user.id
+ }, {
+   $set: {
+     password: req.body.user.password,
+     email: req.body.user.email,
+     location: req.body.user.location,
+     height: req.body.user.height,
+     weight: req.body.user.weight
+   }
+ } ```
+
+ **searchName()**
+ **searchLocation()**
+ **searchAll()**
+
+` db.collection.find({req.body.search})` data from the input field to search the database and return the data object
+
+ **destroy()**
+
+`db.collection.findOneAndRemove({_id: req.user.id}` deletes the current id
 
 ---
 ### **Future Developments**
-* Onions are a bit of a nuisance.
 
-* Some sort of CSS can be displayed to show that you have selected the ingredient.
+* Much, much more stuff to be added, comments and suggestions are much appreciated and welcomed to improve [PersonlTrainr](https://personltrainr.herokuapp.com/)
 
-* Choosing a wrong ingredient does not let you do anything to
+* Nicer UI for the updating form...
 
-* Creating a correct continous combination for `> 5 turns` could let you add more time for playability, as well as combo points.
+* Trainer profile page, accessibility to contact details to be added...
 
-* More levels, more ingredients...
+* Clicking on the location should bring the marker on the map
 
-* Mute squish option
+* Facebook login option to speed up the signup process...
+
+* Option for client to remove the personal trainer when not engaging the services anymore...
+
+* Important to include photo uploading, to store progress photos...
+
+* CSS to be added...
 
 ---
 
