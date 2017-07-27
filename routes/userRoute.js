@@ -40,17 +40,17 @@ router.get('/search', isAuthenticated, function (req, res) {
 })
 
 // router.get('/search', )
-router.post('/search/name', usersController.searchName)
+router.post('/search/name', isAuthenticated, usersController.searchName)
 
-router.post('/search/location', usersController.searchLocation)
+router.post('/search/location', isAuthenticated, usersController.searchLocation)
 
-router.post('/search/all', usersController.searchAll)
+router.post('/search/all', isAuthenticated, usersController.searchAll)
 
 // ---------- delete
-router.post('/delete', usersController.destroy)
+router.post('/delete', isAuthenticated, usersController.destroy)
 
 //
-router.post('/updateUser', usersController.reference)
+router.post('/updateUser', isAuthenticated, usersController.reference)
 
 // ---------- authentication
 function isAuthenticated (req, res, next) {

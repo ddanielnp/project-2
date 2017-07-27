@@ -23,7 +23,7 @@ function create (req, res) {
       // req.flash('errors', err.message)
       // next(err)
       }
-      res.redirect('users/login')
+      res.redirect('/users/login')
     })
   })
 } // close for create function ----------
