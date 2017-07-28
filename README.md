@@ -146,7 +146,8 @@ function notAuthenticated (req, res, next) {
      height: req.body.user.height,
      weight: req.body.user.weight
    }
- } ```
+ }
+ ```
 
  **searchName()**
  **searchLocation()**
