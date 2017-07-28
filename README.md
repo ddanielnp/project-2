@@ -35,15 +35,55 @@
 
  ![Imgur](http://i.imgur.com/GTQaVTk.png?1)
 
- A user will have 0 or 1 trainers
+ User model will have 0 or 1 trainers
 
- A trainer will have 0 or many trainers
+ Trainer model will have 0 or many trainers
+
+**During the signup process, password will get hashed :**
+
+![Imgur](http://i.imgur.com/Ek6vHrG.png)
+ ```
+ const bcrypt = require('bcrypt')
+
+ userSchema.pre('save', function (next) {
+   var user = this
+   // Only hash the password if it has been modified (or is new)
+   if (!user.isModified('password')) return next()
+
+ // hash the password asynchronously
+   bcrypt.hash(user.password, 10, function (err, hash) {
+     if (err) return next(err)
+   // Override the cleartext password with the hashed one
+     user.password = hash
+     next()
+   })
+ })
+```
 
 ---
 
 ### **RESTful Routes**
 
 **userRoute**  and  **trainerRoute**
+
+```
+// ---------- authentication
+function isAuthenticated (req, res, next) {
+  if (req.isAuthenticated()) {
+    next()
+  } else {
+    res.redirect('/')
+  }
+}
+
+function notAuthenticated (req, res, next) {
+  if (!req.isAuthenticated()) {
+    next()
+  } else {
+    res.redirect('/users/profile')
+  }
+}
+```
 
 `/users` - For signup - `/trainers`
 
@@ -74,7 +114,17 @@
 
 ### **Controllers**
 
- **module.exports**
+```
+ module.exports = {
+   create,
+   show,
+   update,
+   searchName,
+   searchLocation,
+   searchAll,
+   destroy
+ }
+ ```
 
  **create()**
 

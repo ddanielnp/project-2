@@ -86,6 +86,8 @@ function searchLocation (req, res) {
 } // close for searchLocation function ----------
 
 function searchAll (req, res) {
+  var showAll = []
+  var trainersId = req.user
   // res.send('search all')
   Trainer
     .find({})
