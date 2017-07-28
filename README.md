@@ -21,7 +21,7 @@
 
 **Packages used**
 
- ![Imgur](http://i.imgur.com/kaRunvr.png?1)
+ ![Imgur](http://i.imgur.com/kaRunvr.png?5)
 
  **Google Javascript API**
 
@@ -41,7 +41,7 @@
 
 **During the signup process, password will get hashed :**
 
-![Imgur](http://i.imgur.com/Ek6vHrG.png)
+![Imgur](http://i.imgur.com/Ek6vHrG.png?1)
  ```
  const bcrypt = require('bcrypt')
 
