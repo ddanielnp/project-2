@@ -1,16 +1,34 @@
-{{#if user}}
-  <h2>
-    Hello {{ user.name }}, you are currently logged in.
-  </h2>
-  <a href="/users/profile">My profile page</a>
-  <a href="/logout">Log out</a>
-{{/if}}
+<nav>
+  <div class="alert alert-dark" role="alert">
+    <ul class="nav justify-content-end">
 
-{{#unless user}}
-  <a href="/users">Sign up as a client</a>
-  <a href="/users/login">Log in as a client</a>
-  <a href="/trainers/login">Log in as a trainer</a>
-{{/unless}}
+      {{#if user}}
+        <h2>
+          Hello {{ user.name }}, you are currently logged in.
+        </h2>
+        <li class="nav-item">
+          <a href="/users/profile">My profile page</a>
+        </li>
+        <li class="nav-item">
+          <a href="/logout">Log out</a>
+        </li>
+      {{/if}}
+
+      {{#unless user}}
+        <li class="nav-item">
+          <a href="/users" class="nav-link active">Sign up as a client</a>
+        </li>
+        <li class="nav-item">
+          <a href="/users/login" class="nav-link active">Log in as a client</a>
+        </li>
+        <li class="nav-item">
+          <a href="/trainers/login" class="nav-link active">Log in as a trainer</a>
+        </li>
+    </ul>
+    {{/unless}}
+
+  </div>
+</nav>
 
 <h2>About us</h2>
 
