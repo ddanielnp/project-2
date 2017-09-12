@@ -1,0 +1,39 @@
+<nav>
+  <div class="alert alert-dark" role="alert">
+
+      {{#if user}}
+      <ul class="nav">
+        <h1><a href="/">PersonlTrainr</a></h1>
+        <li class="nav-item">
+          <a href="/users/profile" class="nav-link active">My profile page</a>
+        </li>
+        <li class="nav-item">
+        <a href="/users/update" class="nav-link active">Update particulars</a>
+      </li>
+          <li class="nav-item">
+            <a href="/users/search" class="nav-link active">Search for a trainer</a>
+          </li>
+        </li>
+        <li class="nav-item">
+          <a href="/logout" class="nav-link active">Log out</a>
+        </li>
+      </ul>
+      {{/if}}
+
+      {{#unless user}}
+      <ul class="nav">
+        <h1><a href="/" class="float-left">PersonlTrainr</a></h1>
+          <li class="nav-item">
+          <a href="/users" class="nav-link active">Sign up as a client</a>
+        </li>
+        <li class="nav-item">
+          <a href="/users/login" class="nav-link active">Log in as a client</a>
+        </li>
+        <li class="nav-item">
+          <a href="/trainers/login" class="nav-link active">Log in as a trainer</a>
+        </li>
+    </ul>
+    {{/unless}}
+
+  </div>
+</nav>

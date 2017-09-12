@@ -1,35 +1,3 @@
-<nav>
-  <div class="alert alert-dark" role="alert">
-    <ul class="nav justify-content-end">
-
-      {{#if user}}
-        <h2>
-          Hello {{ user.name }}, you are currently logged in.
-        </h2>
-        <li class="nav-item">
-          <a href="/users/profile">My profile page</a>
-        </li>
-        <li class="nav-item">
-          <a href="/logout">Log out</a>
-        </li>
-      {{/if}}
-
-      {{#unless user}}
-        <li class="nav-item">
-          <a href="/users" class="nav-link active">Sign up as a client</a>
-        </li>
-        <li class="nav-item">
-          <a href="/users/login" class="nav-link active">Log in as a client</a>
-        </li>
-        <li class="nav-item">
-          <a href="/trainers/login" class="nav-link active">Log in as a trainer</a>
-        </li>
-    </ul>
-    {{/unless}}
-
-  </div>
-</nav>
-
 <h2>About us</h2>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
