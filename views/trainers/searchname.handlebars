@@ -1,14 +1,16 @@
-<a href="/trainers/search">Search Again</a>
+<div class="container content-top">
+  <a href="/trainers/search">Search Again</a>
 
-<div class="found">
-  {{#if user}}
-    <h3>Search results by name</h3>
-    {{#each user as |user|}}
-      <ul>
-        <li>
-          {{user.name}} at {{user.location}}
-        </li>
-      </ul>
-    {{/each}}
-  {{/if}}
+  <div class="found">
+    {{#if user}}
+      <h3>Search results by name</h3>
+      {{#each user as |user|}}
+        <ul>
+          <li>
+            {{user.name}} at {{user.location}}
+          </li>
+        </ul>
+      {{/each}}
+    {{/if}}
+  </div>
 </div>

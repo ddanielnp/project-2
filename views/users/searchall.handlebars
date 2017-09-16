@@ -1,27 +1,30 @@
-<a class="btn btn-secondary" href="/users/search">Back to search</a>
+<div class="container content-top">
 
-<div id="found">
-  {{#if trainers}}
-    <div id="map"></div>
-    {{#each trainers as |trainers|}}
-      <ul id="searchResults">
-        <li>
-          <div class="nameclass">
-            Trainer's name : {{trainers.name}}
-          </div>
-          <div class="mapclass">
-            Trainer's location : <a href="#latlng">{{trainers.location}}</a>
-          </div>
-          <button class="addBttn" data-id="{{trainers.id}}" data-name="{{trainers.name}}" data-geometry="{{trainers.geometry}}">Hire this trainer</button>
-        </li>
-      </ul>
-    {{/each}}
-  {{/if}}
-</div>
+  <a class="btn btn-secondary" href="/users/search">Back to search</a>
 
-{{!-- {{trainers}} --}}
-{{!-- <script>var geometry = {{{ toJSON trainers }}}</script> --}}
+  <div id="found">
+    {{#if trainers}}
+      <div id="map"></div>
+      {{#each trainers as |trainers|}}
+        <ul id="searchResults">
+          <li>
+            <div class="nameclass">
+              Trainer's name : {{trainers.name}}
+            </div>
+            <div class="mapclass">
+              Trainer's location : <a href="#latlng">{{trainers.location}}</a>
+            </div>
+            <button class="addBttn" data-id="{{trainers.id}}" data-name="{{trainers.name}}" data-geometry="{{trainers.geometry}}">Hire this trainer</button>
+          </li>
+        </ul>
+      {{/each}}
+    {{/if}}
+  </div>
 
-{{!-- <div class="data">
+  {{!-- {{trainers}} --}}
+  {{!-- <script>var geometry = {{{ toJSON trainers }}}</script> --}}
+
+  {{!-- <div class="data">
   {{trainers.location}}
 </div> --}}
+</div>

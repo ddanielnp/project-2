@@ -1,33 +1,35 @@
-<h3>Find a client for {{trainer.name}}</h3>
-<a href="/trainers/profile">My profile page</a>
-<a href="/trainers/update">Update particulars</a>
-<a href="/logout">Logout</a>
+<div class="container content-top">
+  <h3>Find a client for {{trainer.name}}</h3>
+  <a href="/trainers/profile">My profile page</a>
+  <a href="/trainers/update">Update particulars</a>
+  <a href="/logout">Logout</a>
 
-<div class="search-div">
-  <form id="searchUser" action="/trainers/search/name" method="post">
-    <label>
+  <div class="search-div">
+    <form id="searchUser" action="/trainers/search/name" method="post">
+      <label>
       Search by User Name:
       <input type="text" name="search[name]" placeholder="Search by name">
     </label>
-    <button>Search Name</button>
-  </form>
-</div>
+      <button>Search Name</button>
+    </form>
+  </div>
 
-<div class="search-div">
-  <form id="searchUser" action="/trainers/search/location" method="post">
-    <label>
+  <div class="search-div">
+    <form id="searchUser" action="/trainers/search/location" method="post">
+      <label>
     Search by User location
     <input type="text" name="search[location]" placeholder="Search by location">
   </label>
-    <button>Search Location</button>
-  </form>
-</div>
+      <button>Search Location</button>
+    </form>
+  </div>
 
-<div class="search-div">
-  <form id="searchUser" action="/trainers/search/all" method="post">
+  <div class="search-div">
+    <form id="searchUser" action="/trainers/search/all" method="post">
 
-    <label>Search all Users</label>
+      <label>Search all Users</label>
 
-    <button>Show me!</button>
-  </form>
+      <button>Show me!</button>
+    </form>
+  </div>
 </div>

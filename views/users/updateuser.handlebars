@@ -1,30 +1,33 @@
-<h3>Update page for {{user.name}}</h3>
+<div class="container content-top">
 
-<form action="/users/update?_method=put" method="post">
-  <div>
-    <label>Update your password:</label>
-    <input type="text" name="user[password]" placeholder="Input password">
-  </div>
+  <h3>Update page for {{user.name}}</h3>
 
-  <div>
-    <label>Update your email:</label>
-    <input type="text" name="user[email]" placeholder="Input password">
-  </div>
+  <form action="/users/update?_method=put" method="post">
+    <div>
+      <label>Update your password:</label>
+      <input type="text" name="user[password]" placeholder="Input password">
+    </div>
 
-  <div>
-    <label>Update your preferred location:</label>
-    <input type="text" name="user[location]" placeholder="Input location">
-  </div>
+    <div>
+      <label>Update your email:</label>
+      <input type="text" name="user[email]" placeholder="Input password">
+    </div>
 
-  <div>
-    <label>Height:</label>
-    <input type="text" name="user[height]" placeholder="Update your height">
-  </div>
+    <div>
+      <label>Update your preferred location:</label>
+      <input type="text" name="user[location]" placeholder="Input location">
+    </div>
 
-  <div>
-    <label>Weight:</label>
-    <input type="text" name="user[weight]" placeholder="Update your weight">
-  </div>
+    <div>
+      <label>Height:</label>
+      <input type="text" name="user[height]" placeholder="Update your height">
+    </div>
 
-  <button>Update Account</button>
-</form>
+    <div>
+      <label>Weight:</label>
+      <input type="text" name="user[weight]" placeholder="Update your weight">
+    </div>
+
+    <button>Update Account</button>
+  </form>
+</div>

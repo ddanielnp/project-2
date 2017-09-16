@@ -1,21 +1,25 @@
-<h2>Client login page</h2>
+<div class="container content-top">
 
-<form id="login" action="/users/login" method="post">
+  <h2>Client login page</h2>
 
-  <div class="form-grp">
-    <label>
+  <form id="login" action="/users/login" method="post">
+
+    <div class="form-grp">
+      <label>
       Email:
       <input type="text" name="user[email]" placeholder="e.g. 123@hotmail.com">
     </label>
-  </div>
+    </div>
 
-  <div class="form-grp">
-    <label>
+    <div class="form-grp">
+      <label>
       Password:
       <input type="password" name="user[password]" placeholder="min 8 characters">
     </label>
-  </div>
+    </div>
 
-  <button class="btn btn-primary">Login</button>
+    <button class="btn btn-primary">Login</button>
 
-</form>
+  </form>
+
+</div>

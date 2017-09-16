@@ -1,30 +1,34 @@
-<h3>Find a trainer for {{user.name}}</h3>
+<div class="container content-top">
 
-<div class="search-div">
-  <form id="searchTrainer" action="/users/search/name" method="post">
-    <label>
+  <h3>Find a trainer for {{user.name}}</h3>
+
+  <div class="search-div">
+    <form id="searchTrainer" action="/users/search/name" method="post">
+      <label>
       Search by Trainer Name
       <input type="text" name="search[name]" placeholder="Search by name">
     </label>
-    <button>Search Name</button>
-  </form>
-</div>
+      <button>Search Name</button>
+    </form>
+  </div>
 
-<div class="search-div">
-  <form id="searchTrainer" action="/users/search/location" method="post">
-    <label>
+  <div class="search-div">
+    <form id="searchTrainer" action="/users/search/location" method="post">
+      <label>
     Search by Trainer location
     <input type="text" name="search[location]" placeholder="Search by location">
   </label>
-    <button>Search Location</button>
-  </form>
-</div>
+      <button>Search Location</button>
+    </form>
+  </div>
 
-<div class="search-div">
-  <form id="searchTrainer" action="/users/search/all" method="post">
+  <div class="search-div">
+    <form id="searchTrainer" action="/users/search/all" method="post">
 
-    <label>Search all Trainers</label>
+      <label>Search all Trainers</label>
 
-    <button>Show me!</button>
-  </form>
+      <button>Show me!</button>
+    </form>
+  </div>
+
 </div>
